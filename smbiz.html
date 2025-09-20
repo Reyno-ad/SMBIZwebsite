@@ -1,0 +1,1006 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>SMBIZ Digital - E-commerce Solutions</title>
+    <link rel="icon" type="image/x-icon" href="/static/favicon.ico">
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link href="https://unpkg.com/aos@2.3.1/dist/aos.css" rel="stylesheet">
+    <script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/feather-icons/dist/feather.min.js"></script>
+    <script src="https://unpkg.com/feather-icons"></script>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    <style>
+        .neon-glow {
+  box-shadow: 0 0 10px rgb(93, 245, 79),
+              0 0 20px rgb(93, 245, 79),
+              0 0 40px rgb(93, 245, 79),
+              0 0 80px rgb(93, 245, 79);
+  transition: box-shadow 0.3s ease-in-out;
+}
+
+.neon-glow:hover {
+  box-shadow: 0 0 5px rgb(93, 245, 79),
+              0 0 10px rgb(93, 245, 79),
+              0 0 20px rgb(93, 245, 79),
+              0 0 40px rgb(93, 245, 79);
+              cursor: pointer;
+}
+        body {
+            font-family: 'Inter', sans-serif;
+            background-color: #000;
+            color: #f1f1f1;
+            cursor: url('data:image/svg+xml;utf8,<svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24"><circle cx="12" cy="12" r="6" fill="%2300ff9d"/></svg>') 12 12, auto;
+        }
+        a, button {
+            cursor: url('data:image/svg+xml;utf8,<svg xmlns="http://www.w3.org/2000/svg" width="32" height="32" viewBox="0 0 32 32"><circle cx="16" cy="16" r="8" fill="%2300ff9d"/></svg>') 16 16, pointer;
+        }
+        .neon-accent {
+            color: #00ff9d;
+        }
+        .neon-border {
+            border-color: #00ff9d;
+        }
+        .neon-bg { 
+            background-color: rgba(0, 255, 157, 0.15);
+        }
+        .hover-glow:hover {
+            text-shadow: 0 0 8px #00ff9d;
+            transition: all 0.3s ease;
+        }
+        .btn-neon {
+            background: transparent;
+            border: 1px solid #00ff9d;
+            color: #00ff9d;
+            transition: all 0.3s ease;
+        }
+        .btn-neon:hover {
+            background: rgba(0, 255, 157, 0.2);
+            box-shadow: 0 0 15px #00ff9d;
+        }
+        .glow-divider {
+            height: 2px;
+            background: linear-gradient(90deg, transparent, #00ff9d, transparent);
+            margin: 2rem 0;
+        }
+        .nav-link {
+            position: relative;
+        }
+        .nav-link:after {
+            content: '';
+            position: absolute;
+            width: 0;
+            height: 2px;
+            bottom: -2px;
+            left: 0;
+            background-color: #00ff9d;
+            transition: width 0.3s ease;
+        }
+        .nav-link:hover:after {
+            width: 100%;
+        }
+        /* Mobile menu styles */
+        .mobile-menu {
+            transform: translateX(100%);
+            transition: all 0.5s cubic-bezier(0.4, 0, 0.2, 1);
+            backdrop-filter: blur(10px);
+        }
+        .mobile-menu.open {
+            transform: translateX(0);
+            box-shadow: -5px 0 30px rgba(0, 255, 157, 0.1);
+        }
+        .mobile-menu .nav-link {
+            transform: translateX(50px);
+            opacity: 0;
+            transition: all 0.3s ease;
+            transition-delay: 0.2s;
+        }
+        .mobile-menu.open .nav-link {
+            transform: translateX(0);
+            opacity: 1;
+        }
+        /* Updated form background */
+        .form-bg {
+            background-color: #111;
+        }
+        /* Updated footer background */
+        .footer-bg {
+            background-color: #0a0a0a;
+        }
+        /* Business package button */
+        .btn-business {
+            background: transparent;
+            color: #00ff9d;
+            border: 1px solid #00ff9d;
+            font-weight: 600;
+            transition: all 0.3s ease;
+        }
+        .btn-business:hover {
+            background: #00ff9d;
+            color: #000;
+            box-shadow: 0 0 15px #00ff9d;
+        }
+        @keyframes pulse {
+            0% {
+                transform: scale(1);
+            }
+            50% {
+                transform: scale(1.05);
+            }
+            100% {
+                transform: scale(1);
+            }
+        }
+        @keyframes pulse-slow {
+            0%, 100% {
+                box-shadow: 0 0 20px rgba(0, 255, 157, 0.2);
+            }
+            50% {
+                box-shadow: 0 0 30px rgba(0, 255, 157, 0.4);
+            }
+        }
+        .animate-pulse-slow {
+            animation: pulse-slow 3s infinite;
+        }
+        /* Back to Top Button */
+        .back-to-top {
+            position: fixed;
+            bottom: 2rem;
+            right: 2rem;
+            background: rgba(0, 0, 0, 0.8);
+            border: 1px solid #00ff9d;
+            padding: 0.75rem;
+            border-radius: 50%;
+            cursor: pointer;
+            transition: all 0.3s ease;
+            opacity: 0;
+            visibility: hidden;
+            z-index: 40;
+        }
+        .back-to-top.visible {
+            opacity: 1;
+            visibility: visible;
+        }
+        .back-to-top:hover {
+            background: rgba(0, 255, 157, 0.2);
+            transform: translateY(-5px);
+        }
+    </style>
+    <meta name="description" content="Professional e-commerce solutions for small businesses. Setup and management of online stores on Shopee, TikTok Shop, and more.">
+    <meta name="keywords" content="e-commerce, online store, shopee, tiktok shop, digital marketing">
+</head>
+<body class="min-h-screen">
+    <!-- Mobile Menu -->
+    <div id="mobile-menu" class="mobile-menu fixed inset-y-0 right-0 w-64 bg-black z-50 p-6 border-l border-gray-800">
+        <div class="flex justify-between items-center mb-8">
+            <div class="text-2xl font-bold">
+                <span class="text-white">SMB</span><span class="neon-accent">IZ</span>
+            </div>
+            <button id="close-menu" class="text-white">
+                <i data-feather="x"></i>
+            </button>
+        </div>
+        <nav class="space-y-6">
+            <a href="#home" class="block text-white text-lg hover:text-neon-accent nav-link">Home</a>
+            <a href="#services" class="block text-white text-lg hover:text-neon-accent nav-link">Services</a>
+            <a href="#pricing" class="block text-white text-lg hover:text-neon-accent nav-link">Pricing</a>
+            <a href="#contact" class="block text-white text-lg hover:text-neon-accent nav-link">Contact</a>
+        </nav>
+    </div>
+
+    <!-- Header -->
+    <header class="sticky top-0 z-40 bg-black bg-opacity-90 backdrop-blur-sm border-b border-gray-800">
+        <div class="container mx-auto px-4 py-4 flex justify-between items-center">
+            <div class="flex items-center">
+                <div class="text-2xl font-bold">
+                    <span class="text-white">SMB</span><span class="neon-accent">IZ</span>
+                </div>
+            </div>
+            <nav class="hidden md:flex space-x-8">
+                <a href="#home" class="nav-link text-white hover:text-neon-accent">Home</a>
+                <a href="#services" class="nav-link text-white hover:text-neon-accent">Services</a>
+                <a href="#pricing" class="nav-link text-white hover:text-neon-accent">Pricing</a>
+                <a href="#contact" class="nav-link text-white hover:text-neon-accent">Contact</a>
+            </nav>
+            <button id="menu-toggle" class="md:hidden text-white">
+                <i data-feather="menu"></i>
+            </button>
+        </div>
+    </header>
+
+    <!-- Hero Section -->
+    <section id="home" class="relative overflow-hidden">
+        <div class="container mx-auto px-4 py-20 md:py-32 flex flex-col md:flex-row items-center">
+            <div class="md:w-1/2 mb-10 md:mb-0" data-aos="fade-right">
+                <h1 class="text-4xl md:text-6xl font-bold mb-6">
+                    <span class="text-white">Boost Your</span> 
+                    <span class="neon-accent hover-glow">Business</span> 
+                    <span class="text-white">Online</span>
+                </h1>
+                <p class="text-gray-400 text-lg mb-8">
+                    Professional e-commerce solutions tailored for small businesses. 
+                    We build, optimize, and maintain your digital storefront.
+                </p>
+                <div class="flex flex-col sm:flex-row space-y-4 sm:space-y-0 sm:space-x-4 mb-8">
+                    <a href="#pricing" class="btn-neon px-8 py-4 rounded-md font-medium text-center">
+                        Get Started
+                    </a>
+                    <a href="#services" class="border border-gray-700 text-white px-8 py-4 rounded-md font-medium text-center hover:bg-gray-900 transition">
+                        Learn More
+                    </a>
+                </div>
+                <a href="#contact" class="inline-block text-neon-accent hover:text-white hover:underline">
+                    Schedule Free Consultation →
+                </a>
+            </div>
+           <div class="md:w-1/2" data-aos="fade-left">
+    <div class="relative">
+        <img src="main pic.jpg" 
+             class="rounded-lg shadow-2xl border border-gray-800 w-full h-auto hovered-element neon-glow">
+    </div>
+</div>
+
+
+        </div>
+        <div class="glow-divider"></div>
+    </section>
+
+    <!-- Services Section -->
+    <section id="services" class="py-20">
+        <div class="container mx-auto px-4">
+            <div class="text-center mb-16" data-aos="fade-up">
+                <h2 class="text-3xl md:text-4xl font-bold mb-4">
+                    Our <span class="neon-accent hover-glow">Services</span>
+                </h2>
+                <p class="text-gray-400 max-w-2xl mx-auto">
+                    Transforming your business with end-to-end digital solutions
+                </p>
+            </div>
+            <div class="grid md:grid-cols-3 gap-12">
+                <!-- E-commerce Setup -->
+                <div class="relative group" data-aos="fade-up" data-aos-delay="100">
+                    <div class="absolute inset-0 bg-gradient-to-r from-[#00ff9d]/20 to-transparent rounded-xl blur-xl group-hover:blur-2xl transition-all duration-500 opacity-0 group-hover:opacity-100"></div>
+                    <div class="relative p-8 rounded-xl border border-gray-800 bg-black hover:border-neon-accent transition-all duration-300 h-full transform group-hover:-translate-y-2">
+                        <div class="flex items-center mb-6">
+                            <div class="w-12 h-12 rounded-lg bg-[#00ff9d]/10 flex items-center justify-center mr-4">
+                                <i data-feather="shopping-cart" class="w-6 h-6 text-[#00ff9d]"></i>
+                            </div>
+                            <h3 class="text-xl font-bold">E-commerce Setup</h3>
+                        </div>
+                        <div class="space-y-4">
+                            <p class="text-gray-400">
+                                Complete online store creation with seamless integration of:
+                            </p>
+                            <ul class="space-y-2 text-gray-300">
+                                <li class="flex items-center">
+                                    <i data-feather="check" class="w-4 h-4 text-[#00ff9d] mr-2"></i>
+                                    Payment Systems
+                                </li>
+                                <li class="flex items-center">
+                                    <i data-feather="check" class="w-4 h-4 text-[#00ff9d] mr-2"></i>
+                                    Product Catalog
+                                </li>
+                                <li class="flex items-center">
+                                    <i data-feather="check" class="w-4 h-4 text-[#00ff9d] mr-2"></i>
+                                    Inventory Management
+                                </li>
+                            </ul>
+                            <a href="#contact" class="inline-flex items-center text-[#00ff9d] hover:underline mt-4">
+                                Learn More
+                                <i data-feather="arrow-right" class="w-4 h-4 ml-2"></i>
+                            </a>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Digital Marketing -->
+                <div class="relative group" data-aos="fade-up" data-aos-delay="200">
+                    <div class="absolute inset-0 bg-gradient-to-r from-[#00ff9d]/20 to-transparent rounded-xl blur-xl group-hover:blur-2xl transition-all duration-500 opacity-0 group-hover:opacity-100"></div>
+                    <div class="relative p-8 rounded-xl border border-gray-800 bg-black hover:border-neon-accent transition-all duration-300 h-full transform group-hover:-translate-y-2">
+                        <div class="flex items-center mb-6">
+                            <div class="w-12 h-12 rounded-lg bg-[#00ff9d]/10 flex items-center justify-center mr-4">
+                                <i data-feather="trending-up" class="w-6 h-6 text-[#00ff9d]"></i>
+                            </div>
+                            <h3 class="text-xl font-bold">Digital Marketing</h3>
+                        </div>
+                        <div class="space-y-4">
+                            <p class="text-gray-400">
+                                Strategic marketing solutions to boost your visibility:
+                            </p>
+                            <ul class="space-y-2 text-gray-300">
+                                <li class="flex items-center">
+                                    <i data-feather="check" class="w-4 h-4 text-[#00ff9d] mr-2"></i>
+                                    Social Media Management
+                                </li>
+                                <li class="flex items-center">
+                                    <i data-feather="check" class="w-4 h-4 text-[#00ff9d] mr-2"></i>
+                                    SEO Optimization
+                                </li>
+                                <li class="flex items-center">
+                                    <i data-feather="check" class="w-4 h-4 text-[#00ff9d] mr-2"></i>
+                                    Targeted Campaigns
+                                </li>
+                            </ul>
+                            <a href="#contact" class="inline-flex items-center text-[#00ff9d] hover:underline mt-4">
+                                Learn More
+                                <i data-feather="arrow-right" class="w-4 h-4 ml-2"></i>
+                            </a>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Support -->
+                <div class="relative group" data-aos="fade-up" data-aos-delay="300">
+                    <div class="absolute inset-0 bg-gradient-to-r from-[#00ff9d]/20 to-transparent rounded-xl blur-xl group-hover:blur-2xl transition-all duration-500 opacity-0 group-hover:opacity-100"></div>
+                    <div class="relative p-8 rounded-xl border border-gray-800 bg-black hover:border-neon-accent transition-all duration-300 h-full transform group-hover:-translate-y-2">
+                        <div class="flex items-center mb-6">
+                            <div class="w-12 h-12 rounded-lg bg-[#00ff9d]/10 flex items-center justify-center mr-4">
+                                <i data-feather="headphones" class="w-6 h-6 text-[#00ff9d]"></i>
+                            </div>
+                            <h3 class="text-xl font-bold">24/7 Support</h3>
+                        </div>
+                        <div class="space-y-4">
+                            <p class="text-gray-400">
+                                Comprehensive support to keep your business running:
+                            </p>
+                            <ul class="space-y-2 text-gray-300">
+                                <li class="flex items-center">
+                                    <i data-feather="check" class="w-4 h-4 text-[#00ff9d] mr-2"></i>
+                                    Technical Assistance
+                                </li>
+                                <li class="flex items-center">
+                                    <i data-feather="check" class="w-4 h-4 text-[#00ff9d] mr-2"></i>
+                                    Platform Management
+                                </li>
+                                <li class="flex items-center">
+                                    <i data-feather="check" class="w-4 h-4 text-[#00ff9d] mr-2"></i>
+                                    Regular Updates
+                                </li>
+                            </ul>
+                            <a href="#contact" class="inline-flex items-center text-[#00ff9d] hover:underline mt-4">
+                                Learn More
+                                <i data-feather="arrow-right" class="w-4 h-4 ml-2"></i>
+                            </a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="glow-divider"></div>
+    </section>
+
+    <!-- Pricing Section -->
+    <section id="pricing" class="py-20">
+        <div class="container mx-auto px-4">
+            <div class="text-center mb-16" data-aos="fade-up">
+                <h2 class="text-3xl md:text-4xl font-bold mb-4">
+                    Simple <span class="neon-accent hover-glow">Pricing</span>
+                </h2>
+                <p class="text-gray-400 max-w-2xl mx-auto">
+                    Choose the perfect package for your business needs
+                </p>
+            </div>
+            <div class="grid md:grid-cols-3 gap-8 mb-12">
+                <!-- Starter Package -->
+                <div class="flex flex-col p-8 rounded-xl border border-gray-800 bg-gradient-to-br from-gray-900 to-neon-accent/20 hover:border-neon-accent transition-all duration-300 hover:shadow-[0_0_20px_rgba(0,255,157,0.3)]" data-aos="fade-up" data-aos-delay="100">
+                    <div class="text-center mb-6">
+                        <h3 class="text-2xl font-bold mb-2">Starter</h3>
+                        <div class="text-neon-accent text-4xl font-bold">RM30</div>
+                        <div class="text-gray-400 text-sm mt-1">One-time Setup</div>
+                    </div>
+                    <ul class="text-gray-300 space-y-4 mb-8">
+                        <li class="flex items-start">
+                            <i data-feather="check-circle" class="w-5 h-5 mr-3 text-neon-accent flex-shrink-0 mt-0.5"></i>
+                            <span>Shop Setup (Shopee/TikTok)</span>
+                        </li>
+                        <li class="flex items-start">
+                            <i data-feather="check-circle" class="w-5 h-5 mr-3 text-neon-accent flex-shrink-0 mt-0.5"></i>
+                            <span>Store Verification</span>
+                        </li>
+                        <li class="flex items-start">
+                            <i data-feather="check-circle" class="w-5 h-5 mr-3 text-neon-accent flex-shrink-0 mt-0.5"></i>
+                            <span>Basic Branding</span>
+                        </li>
+                    </ul>
+                    <a href="#contact" class="block btn-neon w-full py-3 rounded-md font-medium transition-all duration-300 text-center mt-auto">
+                        Get Started
+                    </a>
+                </div>
+
+                <!-- Business Package -->
+                <div class="flex flex-col p-8 rounded-xl border-2 border-neon-accent relative transform hover:scale-105 transition-all duration-300 hover:shadow-[0_0_40px_rgba(0,255,157,0.6)] bg-gradient-to-br from-[#00ff9d]/20 to-black animate-pulse-slow" data-aos="fade-up" data-aos-delay="150">
+                    <!-- Best Seller Badge -->
+                    <div class="absolute -right-4 -top-4 w-16 h-16 bg-[#00ff9d] rounded-full flex items-center justify-center shadow-lg">
+                        <span class="text-black text-xs font-bold leading-tight text-center">BEST<br>SELLER</span>
+                    </div>
+                    <!-- Recommended Tag -->
+                    <div class="absolute -top-3 left-1/2 transform -translate-x-1/2">
+                        <div class="bg-black text-neon-accent px-4 py-1 text-sm font-bold rounded-full border border-neon-accent shadow-[0_0_10px_rgba(0,255,157,0.3)]">
+                            RECOMMENDED
+                        </div>
+                    </div>
+                    <div class="text-center mb-6 pt-4">
+                        <h3 class="text-2xl font-bold mb-2">Business</h3>
+                        <div class="text-neon-accent text-4xl font-bold">RM150</div>
+                        <div class="text-gray-400 text-sm mt-1">All-in-One Solution</div>
+                    </div>
+                    <ul class="text-gray-300 space-y-4 mb-8">
+                        <li class="flex items-start">
+                            <i data-feather="check-circle" class="w-5 h-5 mr-3 text-neon-accent flex-shrink-0 mt-0.5"></i>
+                            <span>Premium Shop Setup (2 Platforms)</span>
+                        </li>
+                        <li class="flex items-start">
+                            <i data-feather="check-circle" class="w-5 h-5 mr-3 text-neon-accent flex-shrink-0 mt-0.5"></i>
+                            <span>10 Optimized Product Listings</span>
+                        </li>
+                        <li class="flex items-start">
+                            <i data-feather="check-circle" class="w-5 h-5 mr-3 text-neon-accent flex-shrink-0 mt-0.5"></i>
+                            <span>Professional Branding Kit</span>
+                        </li>
+                        <li class="flex items-start">
+                            <i data-feather="check-circle" class="w-5 h-5 mr-3 text-neon-accent flex-shrink-0 mt-0.5"></i>
+                            <span>Basic Landing Page</span>
+                        </li>
+                        <li class="flex items-start">
+                            <i data-feather="check-circle" class="w-5 h-5 mr-3 text-neon-accent flex-shrink-0 mt-0.5"></i>
+                            <span>1 Month Priority Support</span>
+                        </li>
+                        <li class="flex items-start">
+                            <i data-feather="check-circle" class="w-5 h-5 mr-3 text-neon-accent flex-shrink-0 mt-0.5"></i>
+                            <span>Basic SEO Setup</span>
+                        </li>
+                    </ul>
+                    <a href="#contact" class="block w-full py-3 rounded-md font-medium bg-gradient-to-r from-[#00ff9d] to-[#00ff9d]/90 text-black hover:bg-black hover:text-[#00ff9d] border-2 border-[#00ff9d] transition-all duration-300 hover:shadow-[0_0_30px_rgba(0,255,157,0.8)] text-center mt-auto">
+                        Get Started
+                    </a>
+                </div>
+
+                <!-- Pro Package -->
+                <div class="flex flex-col p-8 rounded-xl border border-gray-800 bg-gradient-to-br from-gray-900 via-neon-accent/10 to-neon-accent/20 hover:border-neon-accent transition-all duration-300 hover:shadow-[0_0_20px_rgba(0,255,157,0.4)]" data-aos="fade-up" data-aos-delay="200">
+                    <div class="text-center mb-6">
+                        <h3 class="text-2xl font-bold mb-2">Pro</h3>
+                        <div class="text-neon-accent text-4xl font-bold">RM350</div>
+                        <div class="text-gray-400 text-sm mt-1">Advanced Solution</div>
+                    </div>
+                    <ul class="text-gray-300 space-y-4 mb-8">
+                        <li class="flex items-start">
+                            <i data-feather="check-circle" class="w-5 h-5 mr-3 text-neon-accent flex-shrink-0 mt-0.5"></i>
+                            <span>Three Platforms Setup</span>
+                        </li>
+                        <li class="flex items-start">
+                            <i data-feather="check-circle" class="w-5 h-5 mr-3 text-neon-accent flex-shrink-0 mt-0.5"></i>
+                            <span>25 Product Listings</span>
+                        </li>
+                        <li class="flex items-start">
+                            <i data-feather="check-circle" class="w-5 h-5 mr-3 text-neon-accent flex-shrink-0 mt-0.5"></i>
+                            <span>Premium Branding</span>
+                        </li>
+                        <li class="flex items-start">
+                            <i data-feather="check-circle" class="w-5 h-5 mr-3 text-neon-accent flex-shrink-0 mt-0.5"></i>
+                            <span>Professional Website</span>
+                        </li>
+                        <li class="flex items-start">
+                            <i data-feather="check-circle" class="w-5 h-5 mr-3 text-neon-accent flex-shrink-0 mt-0.5"></i>
+                            <span>3 Months Support</span>
+                        </li>
+                    </ul>
+                    <a href="#contact" class="block btn-neon w-full py-3 rounded-md font-medium transition-all duration-300 text-center mt-auto">
+                        Go Pro
+                    </a>
+                </div>
+            </div>
+            
+            <!-- Custom Package -->
+            <div class="max-w-4xl mx-auto" data-aos="fade-up" data-aos-delay="250">
+                <div class="p-8 rounded-xl border border-gray-800 bg-gradient-to-br from-gray-900 to-neon-accent/20 hover:border-neon-accent transition-all duration-300 hover:shadow-[0_0_20px_rgba(0,255,157,0.3)]">
+                    <div class="text-center mb-6">
+                        <h3 class="text-2xl font-bold mb-2">Custom Package</h3>
+                        <div class="text-neon-accent text-3xl font-bold mb-2">Tailored Solution</div>
+                        <p class="text-gray-400 max-w-2xl mx-auto">
+                            Need something specific? We create custom packages designed exactly for your business requirements.
+                        </p>
+                    </div>
+                    <div class="grid md:grid-cols-2 gap-6 mb-8">
+                        <ul class="text-gray-300 space-y-4">
+                            <li class="flex items-start">
+                                <i data-feather="check-circle" class="w-5 h-5 mr-3 text-neon-accent flex-shrink-0 mt-0.5"></i>
+                                <span>Unlimited Platforms</span>
+                            </li>
+                            <li class="flex items-start">
+                                <i data-feather="check-circle" class="w-5 h-5 mr-3 text-neon-accent flex-shrink-0 mt-0.5"></i>
+                                <span>Custom Product Listings</span>
+                            </li>
+                            <li class="flex items-start">
+                                <i data-feather="check-circle" class="w-5 h-5 mr-3 text-neon-accent flex-shrink-0 mt-0.5"></i>
+                                <span>Advanced Branding Package</span>
+                            </li>
+                        </ul>
+                        <ul class="text-gray-300 space-y-4">
+                            <li class="flex items-start">
+                                <i data-feather="check-circle" class="w-5 h-5 mr-3 text-neon-accent flex-shrink-0 mt-0.5"></i>
+                                <span>Professional Custom Website</span>
+                            </li>
+                            <li class="flex items-start">
+                                <i data-feather="check-circle" class="w-5 h-5 mr-3 text-neon-accent flex-shrink-0 mt-0.5"></i>
+                                <span>Ongoing Maintenance & Support</span>
+                            </li>
+                            <li class="flex items-start">
+                                <i data-feather="check-circle" class="w-5 h-5 mr-3 text-neon-accent flex-shrink-0 mt-0.5"></i>
+                                <span>Dedicated Account Manager</span>
+                            </li>
+                        </ul>
+                    </div>
+                    <div class="text-center">
+                        <a href="#contact" class="btn-neon px-8 py-3 rounded-md font-medium inline-block transition-all duration-300 hover:shadow-[0_0_20px_rgba(0,255,157,0.5)]">
+                            Request Custom Quote
+                        </a>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="glow-divider"></div>
+    </section>
+
+    <!-- How It Works -->
+    <section class="py-20">
+        <div class="container mx-auto px-4">
+            <div class="text-center mb-16" data-aos="fade-up">
+                <h2 class="text-3xl md:text-4xl font-bold mb-4">
+                    How It <span class="neon-accent hover-glow">Works</span>
+                </h2>
+                <p class="text-gray-400 max-w-2xl mx-auto">
+                    Simple process to get you selling online fast
+                </p>
+            </div>
+            <div class="grid md:grid-cols-4 gap-8">
+                <div class="text-center" data-aos="fade-up">
+                    <div class="w-16 h-16 rounded-full flex items-center justify-center mx-auto mb-4 neon-border border-2">
+                        <span class="text-neon-accent font-bold text-xl">1</span>
+                    </div>
+                    <h3 class="text-xl font-bold text-white mb-2">Share Details</h3>
+                    <p class="text-gray-400">
+                        Send us your products, photos, and business info via WhatsApp or email
+                    </p>
+                </div>
+                <div class="text-center" data-aos="fade-up" data-aos-delay="100">
+                    <div class="w-16 h-16 rounded-full flex items-center justify-center mx-auto mb-4 neon-border border-2">
+                        <span class="text-neon-accent font-bold text-xl">2</span>
+                    </div>
+                    <h3 class="text-xl font-bold text-white mb-2">We Create</h3>
+                    <p class="text-gray-400">
+                        We set up your shop under our account first and send previews
+                    </p>
+                </div>
+                <div class="text-center" data-aos="fade-up" data-aos-delay="200">
+                    <div class="w-16 h-16 rounded-full flex items-center justify-center mx-auto mb-4 neon-border border-2">
+                        <span class="text-neon-accent font-bold text-xl">3</span>
+                    </div>
+                    <h3 class="text-xl font-bold text-white mb-2">50% Deposit</h3>
+                    <p class="text-gray-400">
+                        Once approved, you pay 50% deposit and we complete the setup
+                    </p>
+                </div>
+                <div class="text-center" data-aos="fade-up" data-aos-delay="300">
+                    <div class="w-16 h-16 rounded-full flex items-center justify-center mx-auto mb-4 neon-border border-2">
+                        <span class="text-neon-accent font-bold text-xl">4</span>
+                    </div>
+                    <h3 class="text-xl font-bold text-white mb-2">Launch & Transfer</h3>
+                    <p class="text-gray-400">
+                        After final payment, we transfer full ownership to you
+                    </p>
+                </div>
+            </div>
+        </div>
+        <div class="glow-divider"></div>
+    </section>
+
+    <!-- Testimonials Section -->
+    <section class="py-20">
+        <div class="container mx-auto px-4">
+            <div class="text-center mb-16" data-aos="fade-up">
+                <h2 class="text-3xl md:text-4xl font-bold mb-4">
+                    Client <span class="neon-accent hover-glow">Success</span> Stories
+                </h2>
+                <p class="text-gray-400 max-w-2xl mx-auto">
+                    See what our clients say about their experience with us
+                </p>
+            </div>
+            <div class="grid md:grid-cols-3 gap-8">
+                <!-- Testimonial 1 -->
+                <div class="p-6 rounded-xl border border-gray-800 hover:border-neon-accent transition-all duration-300" data-aos="fade-up">
+                    <div class="flex items-center mb-4">
+                        <div class="w-12 h-12 rounded-full bg-gradient-to-r from-neon-accent/30 to-neon-accent/10 flex items-center justify-center">
+                            <i data-feather="user" class="w-6 h-6 text-neon-accent"></i>
+                        </div>
+                        <div class="ml-4">
+                            <h4 class="text-white font-bold">Sarah Lee</h4>
+                            <p class="text-gray-400">Fashion Boutique Owner</p>
+                        </div>
+                    </div>
+                    <p class="text-gray-300">"SMBIZ helped me set up my online store on both Shopee and TikTok Shop. Sales increased by 150% in the first month!"</p>
+                    <div class="flex text-neon-accent mt-4">
+                        <i data-feather="star" class="w-5 h-5 fill-current"></i>
+                        <i data-feather="star" class="w-5 h-5 fill-current"></i>
+                        <i data-feather="star" class="w-5 h-5 fill-current"></i>
+                        <i data-feather="star" class="w-5 h-5 fill-current"></i>
+                        <i data-feather="star" class="w-5 h-5 fill-current"></i>
+                    </div>
+                </div>
+
+                <!-- Testimonial 2 -->
+                <div class="p-6 rounded-xl border border-gray-800 hover:border-neon-accent transition-all duration-300" data-aos="fade-up" data-aos-delay="100">
+                    <div class="flex items-center mb-4">
+                        <div class="w-12 h-12 rounded-full bg-gradient-to-r from-neon-accent/30 to-neon-accent/10 flex items-center justify-center">
+                            <i data-feather="user" class="w-6 h-6 text-neon-accent"></i>
+                        </div>
+                        <div class="ml-4">
+                            <h4 class="text-white font-bold">Mike Chen</h4>
+                            <p class="text-gray-400">Electronics Store</p>
+                        </div>
+                    </div>
+                    <p class="text-gray-300">"Their Business Package was exactly what I needed. Professional setup and great support team. Now managing orders is a breeze!"</p>
+                    <div class="flex text-neon-accent mt-4">
+                        <i data-feather="star" class="w-5 h-5 fill-current"></i>
+                        <i data-feather="star" class="w-5 h-5 fill-current"></i>
+                        <i data-feather="star" class="w-5 h-5 fill-current"></i>
+                        <i data-feather="star" class="w-5 h-5 fill-current"></i>
+                        <i data-feather="star" class="w-5 h-5 fill-current"></i>
+                    </div>
+                </div>
+
+                <!-- Testimonial 3 -->
+                <div class="p-6 rounded-xl border border-gray-800 hover:border-neon-accent transition-all duration-300" data-aos="fade-up" data-aos-delay="200">
+                    <div class="flex items-center mb-4">
+                        <div class="w-12 h-12 rounded-full bg-gradient-to-r from-neon-accent/30 to-neon-accent/10 flex items-center justify-center">
+                            <i data-feather="user" class="w-6 h-6 text-neon-accent"></i>
+                        </div>
+                        <div class="ml-4">
+                            <h4 class="text-white font-bold">Amanda Tan</h4>
+                            <p class="text-gray-400">Handmade Crafts</p>
+                        </div>
+                    </div>
+                    <p class="text-gray-300">"From zero online presence to a thriving digital business. Their guidance and support made all the difference!"</p>
+                    <div class="flex text-neon-accent mt-4">
+                        <i data-feather="star" class="w-5 h-5 fill-current"></i>
+                        <i data-feather="star" class="w-5 h-5 fill-current"></i>
+                        <i data-feather="star" class="w-5 h-5 fill-current"></i>
+                        <i data-feather="star" class="w-5 h-5 fill-current"></i>
+                        <i data-feather="star" class="w-5 h-5 fill-current"></i>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="glow-divider"></div>
+    </section>
+
+    <!-- FAQ Section -->
+    <section class="py-20">
+        <div class="container mx-auto px-4">
+            <div class="text-center mb-16" data-aos="fade-up">
+                <h2 class="text-3xl md:text-4xl font-bold mb-4">
+                    Frequently Asked <span class="neon-accent hover-glow">Questions</span>
+                </h2>
+                <p class="text-gray-400 max-w-2xl mx-auto">
+                    Common questions about our services and process
+                </p>
+            </div>
+            <div class="max-w-3xl mx-auto space-y-6">
+                <!-- FAQ Items -->
+                <div class="faq-item border border-gray-800 rounded-lg hover:border-neon-accent transition-all duration-300" data-aos="fade-up">
+                    <button class="w-full flex justify-between items-center p-6 focus:outline-none">
+                        <span class="text-lg font-semibold text-white">How long does it take to set up my online store?</span>
+                        <i data-feather="plus" class="w-5 h-5 text-neon-accent transform transition-transform"></i>
+                    </button>
+                    <div class="faq-answer hidden px-6 pb-6 text-gray-400">
+                        Basic store setup takes 2-3 business days. For more complex setups with custom features, it may take 5-7 business days. We'll keep you updated throughout the process.
+                    </div>
+                </div>
+
+                <div class="faq-item border border-gray-800 rounded-lg hover:border-neon-accent transition-all duration-300" data-aos="fade-up">
+                    <button class="w-full flex justify-between items-center p-6 focus:outline-none">
+                        <span class="text-lg font-semibold text-white">Do you provide ongoing support?</span>
+                        <i data-feather="plus" class="w-5 h-5 text-neon-accent transform transition-transform"></i>
+                    </button>
+                    <div class="faq-answer hidden px-6 pb-6 text-gray-400">
+                        Yes, we provide ongoing support based on your package. Business and Pro packages include dedicated support periods, and we offer extended support plans for continued assistance.
+                    </div>
+                </div>
+
+                <div class="faq-item border border-gray-800 rounded-lg hover:border-neon-accent transition-all duration-300" data-aos="fade-up">
+                    <button class="w-full flex justify-between items-center p-6 focus:outline-none">
+                        <span class="text-lg font-semibold text-white">What platforms do you support?</span>
+                        <i data-feather="plus" class="w-5 h-5 text-neon-accent transform transition-transform"></i>
+                    </button>
+                    <div class="faq-answer hidden px-6 pb-6 text-gray-400">
+                        We support major e-commerce platforms including Shopee, TikTok Shop, Lazada, and WooCommerce. Custom solutions are available for other platforms based on your needs.
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="glow-divider"></div>
+    </section>
+
+    <!-- CTA Section -->
+    <section class="py-20 bg-gradient-to-r from-[#00ff9d]/30 to-[#00ff9d]/20">
+        <div class="container mx-auto px-4 text-center">
+            <h2 class="text-3xl md:text-4xl font-bold mb-6" data-aos="fade-down">
+                Ready to Start Selling Online?
+            </h2>
+            <p class="text-xl text-gray-300 mb-8 max-w-2xl mx-auto" data-aos="fade-down" data-aos-delay="100">
+                Special pricing for first 3 clients!
+            </p>
+            <div data-aos="fade-up" data-aos-delay="200">
+                <a href="#contact" class="btn-neon px-8 py-4 rounded-md font-medium inline-block hover:shadow-[0_0_20px_rgba(0,255,157,0.5)]">
+                    Get Your Discount
+                </a>
+            </div>
+        </div>
+    </section>
+
+    <!-- Contact Section -->
+    <section id="contact" class="py-20">
+        <div class="container mx-auto px-4">
+            <div class="max-w-5xl mx-auto">
+                <div class="text-center mb-16" data-aos="fade-up">
+                    <h2 class="text-3xl md:text-4xl font-bold mb-4">
+                        Get In <span class="neon-accent hover-glow">Touch</span>
+                    </h2>
+                    <p class="text-gray-400 max-w-2xl mx-auto">
+                        Ready to boost your business online? Contact us for a free consultation or to get started with your package.
+                    </p>
+                </div>
+                
+                <div class="grid md:grid-cols-2 gap-12 items-center">
+                    <div class="space-y-8" data-aos="fade-right">
+                        <div>
+                            <h3 class="text-2xl font-bold mb-6">Contact Information</h3>
+                            <div class="space-y-6">
+                                <div class="flex items-start">
+                                    <div class="bg-gray-800 p-3 rounded-lg mr-4">
+                                        <i data-feather="mail" class="w-6 h-6 text-neon-accent"></i>
+                                    </div>
+                                    <div>
+                                        <h4 class="font-bold text-white mb-1">Email Us</h4>
+                                        <p class="text-gray-400">your@email.com</p>
+                                    </div>
+                                </div>
+                                
+                                <div class="flex items-start">
+                                    <div class="bg-gray-800 p-3 rounded-lg mr-4">
+                                        <i data-feather="phone" class="w-6 h-6 text-neon-accent"></i>
+                                    </div>
+                                    <div>
+                                        <h4 class="font-bold text-white mb-1">Call Us</h4>
+                                        <p class="text-gray-400">+60 XXX-XXXXXXX</p>
+                                    </div>
+                                </div>
+                                
+                                <div class="flex items-start">
+                                    <div class="bg-gray-800 p-3 rounded-lg mr-4">
+                                        <i data-feather="clock" class="w-6 h-6 text-neon-accent"></i>
+                                    </div>
+                                    <div>
+                                        <h4 class="font-bold text-white mb-1">Working Hours</h4>
+                                        <p class="text-gray-400">Monday - Friday: 9AM - 6PM</p>
+                                        <p class="text-gray-400">Weekends: By Appointment</p>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        
+                        <div class="neon-border border-l-4 pl-6 py-1">
+                            <h4 class="font-bold text-white mb-2">Schedule a Free Consultation</h4>
+                            <p class="text-gray-400">
+                                Book a 30-minute consultation to discuss your business needs and how we can help you grow online.
+                            </p>
+                        </div>
+                    </div>
+                    
+                    <div class="form-bg p-8 rounded-xl border border-gray-800" data-aos="fade-left">
+                        <form class="space-y-6">
+                            <div class="grid md:grid-cols-2 gap-6">
+                                <div>
+                                    <label class="block text-gray-300 mb-2">Name</label>
+                                    <input type="text" placeholder="Your Name" class="w-full bg-black border border-gray-700 rounded-md px-4 py-3 text-white focus:border-neon-accent focus:outline-none transition">
+                                </div>
+                                <div>
+                                    <label class="block text-gray-300 mb-2">Email</label>
+                                    <input type="email" placeholder="your@email.com" class="w-full bg-black border border-gray-700 rounded-md px-4 py-3 text-white focus:border-neon-accent focus:outline-none transition">
+                                </div>
+                            </div>
+                            
+                            <div>
+                                <label class="block text-gray-300 mb-2">Phone</label>
+                                <input type="tel" placeholder="+60 XXX-XXXXXXX" class="w-full bg-black border border-gray-700 rounded-md px-4 py-3 text-white focus:border-neon-accent focus:outline-none transition">
+                            </div>
+                            
+                            <div>
+                                <label class="block text-gray-300 mb-2">Service Interested In</label>
+                                <select class="w-full bg-black border border-gray-700 rounded-md px-4 py-3 text-white focus:border-neon-accent focus:outline-none transition">
+                                    <option>Select Service</option>
+                                    <option>Starter Package</option>
+                                    <option>Business Package</option>
+                                    <option>Pro Package</option>
+                                    <option>Custom Package</option>
+                                    <option>Free Consultation</option>
+                                </select>
+                            </div>
+                            
+                            <div>
+                                <label class="block text-gray-300 mb-2">Message</label>
+                                <textarea placeholder="Tell us about your project..." rows="5" class="w-full bg-black border border-gray-700 rounded-md px-4 py-3 text-white focus:border-neon-accent focus:outline-none transition"></textarea>
+                            </div>
+                            
+                            <button type="submit" class="btn-neon w-full py-3 rounded-md font-medium transition-all duration-300 hover:shadow-[0_0_20px_rgba(0,255,157,0.5)]">
+                                Send Message
+                            </button>
+                        </form>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="glow-divider"></div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="footer-bg text-gray-400 py-12">
+        <div class="container mx-auto px-4">
+            <div class="grid md:grid-cols-4 gap-8 mb-8">
+                <div>
+                    <div class="text-2xl font-bold mb-4">
+                        <span class="text-white">SMB</span><span class="neon-accent">IZ</span>
+                    </div>
+                    <p class="mb-4">
+                        Professional digital solutions for small businesses looking to establish and grow their online presence.
+                    </p>
+                    <div class="flex space-x-4">
+                        <a href="#" class="text-gray-400 hover:text-neon-accent transition">
+                            <i data-feather="facebook"></i>
+                        </a>
+                        <a href="#" class="text-gray-400 hover:text-neon-accent transition">
+                            <i data-feather="twitter"></i>
+                        </a>
+                        <a href="#" class="text-gray-400 hover:text-neon-accent transition">
+                            <i data-feather="instagram"></i>
+                        </a>
+                        <a href="#" class="text-gray-400 hover:text-neon-accent transition">
+                            <i data-feather="linkedin"></i>
+                        </a>
+                    </div>
+                </div>
+                <div>
+                    <h3 class="text-white font-bold mb-4">Quick Links</h3>
+                    <ul class="space-y-2">
+                        <li><a href="#" class="hover:text-neon-accent transition">Home</a></li>
+                        <li><a href="#" class="hover:text-neon-accent transition">Services</a></li>
+                        <li><a href="#" class="hover:text-neon-accent transition">Pricing</a></li>
+                        <li><a href="#" class="hover:text-neon-accent transition">Portfolio</a></li>
+                        <li><a href="#" class="hover:text-neon-accent transition">Contact</a></li>
+                    </ul>
+                </div>
+                <div>
+                    <h3 class="text-white font-bold mb-4">Services</h3>
+                    <ul class="space-y-2">
+                        <li><a href="#" class="hover:text-neon-accent transition">E-commerce Setup</a></li>
+                        <li><a href="#" class="hover:text-neon-accent transition">Website Design</a></li>
+                        <li><a href="#" class="hover:text-neon-accent transition">Digital Marketing</a></li>
+                        <li><a href="#" class="hover:text-neon-accent transition">SEO Optimization</a></li>
+                        <li><a href="#" class="hover:text-neon-accent transition">Technical Support</a></li>
+                    </ul>
+                </div>
+                <div>
+                    <h3 class="text-white font-bold mb-4">Contact Us</h3>
+                    <ul class="space-y-2">
+                        <li class="flex items-center">
+                            <i data-feather="mail" class="mr-2 w-4 h-4"></i>
+                            contact@smbiz.digital
+                        </li>
+                        <li class="flex items-center">
+                            <i data-feather="phone" class="mr-2 w-4 h-4"></i>
+                            +1 (555) 123-4567
+                        </li>
+                        <li class="flex items-center">
+                            <i data-feather="map-pin" class="mr-2 w-4 h-4"></i>
+                            123 Business Ave, Suite 100
+                        </li>
+                    </ul>
+                </div>
+            </div>
+            <div class="border-t border-gray-800 pt-8 text-center">
+                <p>&copy; 2023 SMBIZ Digital. All rights reserved.</p>
+            </div>
+        </div>
+    </footer>
+
+    <button id="back-to-top" class="back-to-top" aria-label="Back to Top">
+        <i data-feather="arrow-up" class="w-6 h-6 text-neon-accent"></i>
+    </button>
+
+    <script>
+        // Mobile menu toggle
+        const menuToggle = document.getElementById('menu-toggle');
+        const closeMenu = document.getElementById('close-menu');
+        const mobileMenu = document.getElementById('mobile-menu');
+        
+        menuToggle.addEventListener('click', () => {
+            mobileMenu.classList.add('open');
+        });
+        
+        closeMenu.addEventListener('click', () => {
+            mobileMenu.classList.remove('open');
+        });
+        
+        // Close menu when clicking on links
+        document.querySelectorAll('#mobile-menu a').forEach(link => {
+            link.addEventListener('click', () => {
+                mobileMenu.classList.remove('open');
+            });
+        });
+        
+        // Smooth scrolling for anchor links
+        document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+            anchor.addEventListener('click', function(e) {
+                e.preventDefault();
+                const target = document.querySelector(this.getAttribute('href'));
+                if (target) {
+                    window.scrollTo({
+                        top: target.offsetTop - 80,
+                        behavior: 'smooth'
+                    });
+                }
+            });
+        });
+        
+        // Initialize AOS
+        AOS.init({
+            duration: 800,
+            once: false
+        });
+        
+        // Initialize Feather Icons
+        feather.replace();
+
+        // FAQ Functionality
+        document.querySelectorAll('.faq-item button').forEach(button => {
+            button.addEventListener('click', () => {
+                const answer = button.nextElementSibling;
+                const icon = button.querySelector('i');
+                
+                // Toggle answer visibility
+                answer.classList.toggle('hidden');
+                
+                // Rotate icon
+                icon.style.transform = answer.classList.contains('hidden') 
+                    ? 'rotate(0deg)' 
+                    : 'rotate(45deg)';
+            });
+        });
+
+        // Back to Top functionality
+        const backToTop = document.getElementById('back-to-top');
+        
+        window.addEventListener('scroll', () => {
+            if (window.pageYOffset > 300) {
+                backToTop.classList.add('visible');
+            } else {
+                backToTop.classList.remove('visible');
+            }
+        });
+
+        backToTop.addEventListener('click', () => {
+            window.scrollTo({
+                top: 0,
+                behavior: 'smooth'
+            });
+        });
+
+        // Enhanced mobile menu animations
+        const mobileMenuLinks = document.querySelectorAll('#mobile-menu .nav-link');
+        mobileMenuLinks.forEach((link, index) => {
+            link.style.transitionDelay = `${0.1 * (index + 1)}s`;
+        });
+    </script>
+
+</body>
+</html>
